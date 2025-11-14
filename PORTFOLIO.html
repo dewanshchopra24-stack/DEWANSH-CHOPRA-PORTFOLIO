@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dewansh Chopra — Portfolio (Extended)</title>
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0f1724; --muted:#9fb0c8; --accent:#06b6d4; --accent2:#7c3aed; --glass:rgba(255,255,255,0.03);
+      --radius:14px; --glass-2: rgba(255,255,255,0.02);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#04101a);color:#e6eef6}
+    a{color:var(--accent);text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:28px auto;padding:18px}
+    header{position:sticky;top:0;background:linear-gradient(180deg,rgba(11,22,33,0.6),rgba(11,22,33,0.2));backdrop-filter: blur(6px);padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.03);z-index:40}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:800}
+    .navlinks{display:flex;gap:10px}
+    .navlinks a{padding:10px 12px;border-radius:10px;font-size:14px;color:var(--muted)}
+    .navlinks a:hover{background:var(--glass);color:#fff}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#012;font-weight:700}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-top:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    h1{margin:0;font-size:30px;letter-spacing:-0.4px}
+    p.lead{color:var(--muted);line-height:1.6;margin-top:12px}
+    .avatar{width:180px;height:180px;border-radius:18px;background:linear-gradient(180deg,#0ea5a0,#7c3aed);display:grid;place-items:center;font-weight:800;font-size:40px}
+    .profile{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px}
+    .small{font-size:13px;color:var(--muted)}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .skill{padding:8px;border-radius:12px;background:var(--glass-2)}
+    .skill .name{display:flex;justify-content:space-between;font-weight:700}
+    .bar{height:10px;background:rgba(255,255,255,0.04);border-radius:8px;margin-top:8px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:60%}
+    .timeline{position:relative;padding-left:18px}
+    .timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:rgba(255,255,255,0.03)}
+    .event{position:relative;padding:12px 0 12px 18px}
+    .event:before{content:"";position:absolute;left:-12px;top:18px;width:14px;height:14px;border-radius:50%;background:linear-gradient(180deg,var(--accent),var(--accent2));box-shadow:0 0 8px rgba(0,0,0,0.6)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .proj-card{padding:16px;border-radius:12px;background:rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:10px}
+    .proj-card h3{margin:0}
+    .proj-meta{font-size:13px;color:var(--muted)}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
+    .modal{position:fixed;inset:0;display:grid;place-items:center;background:rgba(2,6,23,0.6);visibility:hidden;opacity:0;transition:opacity .2s}
+    .modal.open{visibility:visible;opacity:1}
+    .modal .inner{width:min(920px,95%);background:var(--card);padding:22px;border-radius:14px}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form input, form textarea{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:10px;border-radius:8px;color:inherit}
+    form textarea{grid-column:1/ -1;min-height:120px}
+    footer{margin:40px 0 80px;color:var(--muted);font-size:14px}
+    .muted{color:var(--muted)}
+    .section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .section-title h2{margin:0;font-size:18px}
+    @media (max-width:1000px){
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .hero{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .skills-grid{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+      .avatar{width:140px;height:140px}
+    }
+    @media (max-width:600px){.grid-3{grid-template-columns:1fr}}
+    @media print{body{background:white;color:black} header, .btn, .modal{display:none} .card{box-shadow:none;border:1px solid #ddd}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo">D͜͡C</div>
+          <div>
+            <div style="font-weight:800">Dewansh Chopra</div>
+            <div class="small">B.Tech • CSE • DTU</div>
+          </div>
+        </div>
+        <div class="navlinks" aria-hidden="true">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="card">
+        <h1>Hi — I’m Dewansh</h1>
+        <p class="lead">I build clean, responsive websites and small C programs. I enjoy solving problems, learning new technologies, and turning ideas into working projects. Currently exploring full-stack web development and systems programming.</p>
+        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="#projects">See projects</a>
+          <a class="muted" href="mailto:your.email@example.com">dewanshchopra24@gmail.com</a>
+        </div>
+        <div style="margin-top:18px" class="grid-2">
+          <div>
+            <div class="section-title"><h2>Education</h2></div>
+            <p style="margin:0"><strong>Delhi Technological University</strong><br><span class="muted">B.Tech — Computer Science and Engeenearing (1st year)</span></p>
+          </div>
+          <div>
+            <div class="section-title"><h2>Profiles</h2></div>
+            <p style="margin:0">•<a href="https://www.linkedin.com/in/dewansh-chopra-b52746368?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a> <br> • <a href="https://github.com/dewanshchopra24-stack">GitHub</a></p>
+          </div>
+        </div>
+      </div>
+      <aside class="card profile" style="text-align:center">
+        <div> <div class="profile-photo">
+  <img src="./WhatsApp Image 2025-11-15 at 02.14.54.jpeg"
+     style="width:160px; height:160px; object-fit:cover; border-radius:18px; display:block; margin:auto;" />
+
+  
+
+</div>
+</div> </div>
+        <div style="font-weight:700">Dewansh Chopra</div>
+        <div class="small">Web • C • HTML • CSS</div>
+        <div class="skills" id="skills">
+          <div class="chip">HTML</div>
+          <div class="chip">CSS</div>
+          <div class="chip">JavaScript</div>
+          <div class="chip">C</div>
+          <div class="chip">Git</div>
+        </div>
+      </aside>
+    </section>
+    <section id="about" class="card">
+      <div class="section-title"><h2>About Me</h2></div>
+      <p class="lead">I’m a first-year CSE student at DTU with a strong interest in programming and web development. I write clean C code, build static and responsive websites using HTML/CSS, and maintain small projects on GitHub. I like learning new tools, improving performance, and writing readable code that others can reuse.</p>
+      <ul style="color:var(--muted);margin-top:12px">
+        <li>Comfortable with procedural C and data structures basics</li>
+        <li>Build responsive websites and small frontend components</li>
+        <li>Version control with Git and GitHub</li>
+      </ul>
+    </section>
+    <section id="skills" class="card">
+      <div class="section-title"><h2>Skills &amp; Proficiency</h2></div>
+      <div class="skills-grid">
+        <div class="skill">
+          <div class="name"><span>HTML</span><span class="muted">95%</span></div>
+          <div class="bar"><i style="width:95%"></i></div>
+        </div>
+        <div class="skill">
+          <div class="name"><span>CSS</span><span class="muted">90%</span></div>
+          <div class="bar"><i style="width:90%"></i></div>
+        </div>
+        <div class="skill">
+          <div class="name"><span>JavaScript</span><span class="muted">60%</span></div>
+          <div class="bar"><i style="width:60%"></i></div>
+        </div>
+        <div class="skill">
+          <div class="name"><span>C</span><span class="muted">80%</span></div>
+          <div class="bar"><i style="width:80%"></i></div>
+        </div>
+      </div>
+    </section>
+    <section id="education" class="card">
+      <div class="section-title"><h2>Education Timeline</h2></div>
+      <div class="timeline">
+        <div class="event">
+          <div style="font-weight:700">2025 — Present</div>
+          <div class="muted">B.Tech, Delhi Technological University — Electronics &amp; Communication</div>
+        </div>
+        <div class="event">
+          <div style="font-weight:700">2023 — 2025</div>
+          <div class="muted">Senior Secondary / Higher Secondary</div>
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="card projects">
+      <div class="section-title"><h2>Projects</h2></div>
+      <div class="grid-3">
+        <div class="proj-card">
+          <h3>Personal Portfolio Website</h3>
+          <div class="proj-meta">Single-page responsive portfolio built with HTML &amp; CSS</div>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span></div>
+          <div style="margin-top:auto;display:flex;gap:8px"><button data-project="p1" class="btn open-proj">Details</button><a class="muted" href="#" style="align-self:center"></a></div>
+        </div>
+        <div class="proj-card">
+          <h3>Collection of C Programs</h3>
+          <div class="proj-meta">Folder of sorting, searching, pointers, and file I/O examples with sample inputs</div>
+          <div class="tags"><span class="tag">C</span><span class="tag">Algorithms</span><span class="tag">Practice</span></div>
+          <div style="margin-top:auto;display:flex;gap:8px"><button data-project="p2" class="btn open-proj">Details</button><a class="muted" href="#" style="align-self:center"></a></div>
+        </div>
+        <div class="proj-card">
+          <h3>Mini Web Apps</h3>
+          <div class="proj-meta">Small JS demos: todo app, calculator, and interactive UI exercises</div>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">UI</span></div>
+          <div style="margin-top:auto;display:flex;gap:8px"><button data-project="p3" class="btn open-proj">Details</button><a class="muted" href="#" style="align-self:center"></a></div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="card">
+      <div class="section-title"><h2>Contact</h2></div>
+      <p>If you want to reach out for collaboration or feedback, email me at <a href="mailto:dewanshchopra24@gmail.com">dewanshchopra24@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/dewansh-chopra-b52746368?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a> / <a href="https://github.com/dewanshchopra24-stack">GitHub</a>.</p>
+      <form id="contactForm" onsubmit="return false;">
+        <input type="text" id="name" placeholder="YOUR NAME " required>
+        <input type="email" id="email" placeholder="YOUR EMAIL" required>
+        <textarea id="message" placeholder="MESSAGE"></textarea>
+        <button type="submit" class="btn" style="grid-column:1/-1">Send (demo)</button>
+      </form>
+      <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn" href="mailto:dewanshchopra24@gmail.com">Email me</a>
+        <a class="muted" href="Dewansh_Chopra_Resume_Final-2.pdf">Download resume</a>
+      </div>
+      <footer>
+        <p class="small muted">© 2025 Dewansh Chopra. Built with HTML &amp; CSS.</p>
+      </footer>
+    </section>
+  </main>
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="inner">
+      <div id="modalContent"></div>
+      <div style="margin-top:12px;text-align:right"><button id="closeModal" class="btn">Close</button></div>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          var el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+    var projects = {
+      p1: {
+        title: "Personal Portfolio Website",
+        body: "<p>Responsive single-page portfolio built using semantic HTML and modern CSS. Sections include Home, About, Skills, Projects, Education and Contact. Replace placeholders with real content and hosted links.</p>"
+      },
+      p2: {
+        title: "Collection of C Programs",
+        body: "<p>A set of small C programs: bubble sort, insertion sort, binary search, pointer exercises, file I/O examples and simple data-structure demos. Each program includes sample input and expected output for testing.</p>"
+      },
+      p3: {
+        title: "Mini Web Apps",
+        body: "<p>Small JavaScript apps demonstrating DOM manipulation and event handling: todo list, calculator, and simple interactive UI components.</p>"
+      }
+    };
+    document.querySelectorAll('.open-proj').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var id = btn.getAttribute('data-project');
+        var m = document.getElementById('modal');
+        var c = document.getElementById('modalContent');
+        var p = projects[id];
+        c.innerHTML = '<h3 style=\"margin-top:0\">'+p.title+'</h3>'+p.body;
+        m.classList.add('open');
+        m.setAttribute('aria-hidden','false');
+      });
+    });
+    document.getElementById('closeModal').addEventListener('click',function(){
+      var m = document.getElementById('modal');
+      m.classList.remove('open');
+      m.setAttribute('aria-hidden','true');
+    });
+    document.getElementById('modal').addEventListener('click',function(e){
+      if(e.target===this){
+        this.classList.remove('open');
+        this.setAttribute('aria-hidden','true');
+      }
+    });
+    document.getElementById('contactForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      var name = document.getElementById('name').value || 'No name';
+      var email = document.getElementById('email').value || 'No email';
+      var message = document.getElementById('message').value || '';
+      alert('Demo form\\nName: '+name+'\\nEmail: '+email+'\\nMessage: '+message);
+    });
+  </script>
+</body>
+</html>
